@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HappyBirthdayPart2</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9">
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <a href="https://ayushkumarsingh2422005.github.io/HappyBirthdayRishika/">
+            <div id="rn">Return back</div>
+        </a>
+        
+        <div id="clock">Lets Go</div>
+        <div class="rotate_content">
+            <div id="arr_1">1</div>
+            <div id="arr_2">2</div>
+            <div id="arr_3">3</div>
+            <div id="arr_4">4</div>
+        </div>
+        
+        <div class="sub1 sub">
+            Party karo dher saara
+            <b><br> 
+            Wish you happiest birthday.
+        </div>
+        
+        <div class="sub2 sub">
+            Now its time to leave. Just uninstall the app as it is no more usable after your birthday.
+        </div>
+        
+        <div class="sub3 sub">
+            <div id="text"></div>
+            <div id="cursor">|</div>
+        </div>
+        
+        <div class="sub4 sub">
+            <div id="sub_sub">
+                <div id="profile_image1"></div>
+                <div id="text_first">From 丹ⓨㄩک廾</div>
+            </div>
+            
+            <div id="sub_sub">
+                <div id="profile_image2"></div>
+                <div id="text_first">To AJ sir</div>
+            </div>
+        </div>
+        
+        <!--Loader code-->
+        <div class="loader_container">
+            <div class="loader_sub">
+                <div id="loader_1"></div>
+                <div id="loader_2"></div>
+                <div id="loader_3"></div>
+            </div>
+            <div class="loader_text"></div>
+        </div>
+        <!--loader ends-->
+        <audio id="aud" controls autoplay loop>
+            <source  src="https://www.dropbox.com/s/obql0j9q6bnkzg1/KGF%20BGM.mp3?raw=1" type="audio/mpeg"/>
+        </audio>
+        
+        
+        <style>
+            
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Chelsea+Market&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap');
+
+*{
+    box-sizing:border-box;
+    transition-duration:2s;
+}
+body {
+    padding:0;
+    margin:0;
+    background:url("https://i.giphy.com/media/peAFQfg7Ol6IE/giphy.webp") no-repeat center center fixed;
+    background-size:cover;
+}
+#rn{
+    position:fixed;
+    top:5px;
+    left:5px;
+    background-color:white;
+    color:black;
+    border-radius:20px;
+    font-size:4px;
+    padding:2px;
+}
+#clock{
+    position:fixed;
+    top:5px;
+    right:5px;
+    background-color:white;
+    color:black;
+    border-radius:20px;
+    font-size:4px;
+    padding:2px;
+}
+.rotate_content{
+    position:fixed;
+    height:60vh;
+    width:60vh;
+    background-color:red;
+    border-radius:0%;
+    top:calc(50vh - 30vh);
+    left:calc(50vw - 30vh);
+    border-radius:50%;
+    border-style:solid;
+    border-width:1px;
+    transform:rotate(0deg);
+    background-image:url("https://www.funimada.com/assets/images/cards/big/bday-416.gif");
+    background-size:cover;
+}
+.rotate_content > div{
+    position:absolute;
+    height:20px;
+    width:30px;
+    background-color:black;
+    color:white;
+    text-align:center;
+    border-radius:50% 50% 0 0;
+}
+#arr_1{
+    top:calc(0% - 10px);
+    left:calc(50% - 15px);
+    transform:rotate(0deg);
+}
+#arr_2{
+    top:calc(50% - 10px);
+    left:calc(100% - 15px);
+    transform:rotate(90deg);
+}
+#arr_3{
+    top:calc(100% - 10px);
+    left:calc(50% - 15px);
+    transform:rotate(180deg);
+}
+#arr_4{
+    top:calc(50% - 10px);
+    left:calc(0% - 15px);
+    transform:rotate(270deg);
+}
+
+/*---------------------------------------------------*/
+
+.sub{
+    position:fixed;
+    height:56vh;
+    width:56vh;
+    background-color:pink;
+    top:calc(50vh - 28vh);
+    left:calc(50vw - 28vh);
+    border-radius:50%;
+    border-style:solid;
+    border-width:0.7px;
+    text-align:center;
+}
+.sub4{
+    background-color:black;
+}
+#sub_sub{
+    position:absolute;
+    width:56vh;
+    height:28vh;
+    background-color:none;
+    border-radius:50% 50% 0 0;
+    padding-top:20px;
+    background-color:none;
+    color:White;
+}
+#sub_sub:nth-child(2){
+    top:calc(50%);
+    border-radius:0% 0% 50% 50%;
+    border-top-style:solid;
+}
+#profile_image1{
+    background-image:url("https://api.sololearn.com/Uploads/Avatars/16882555.jpg");
+    height:50px;
+    width:50px;
+    margin:0 auto 0 auto;
+    background-size:cover;
+    border-radius:50%;
+}
+#profile_image2{
+    background-image:url("https://api.sololearn.com/Uploads/Avatars/7920723.jpg");
+    height:50px;
+    width:50px;
+    margin:0 auto 0 auto;
+    background-size:cover;
+    border-radius:50%;
+}
+#text_first{
+    margin-top:10px;
+}
+.sub3{
+    padding:35% 40px 0 40px;
+    background-color:#e6e6e6;
+    color:gray;
+    text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 0px -4px 10px rgba(225,225,225,0.3);
+}
+#text{
+    display:inline-block;
+    font-family: 'Chelsea Market', cursive;
+}
+#cursor{
+    display:inline-block;
+    vertical-align:middle;
+    width:3px;
+    height:18px;
+    animation: blink .50s step-end infinite;
+    line-height:60%;
+    font-size:20px;
+} 
+@keyframes blink{
+    from,to{
+        opacity:0;
+    }     
+    50%{
+        opacity:1;
+    }
+}
+.sub2{
+    padding:20% 40px 0 40px;
+    font-size:25px;
+    font-weight:bold;
+    background-color:black;
+    background-image:url("https://thumbs.gfycat.com/NegativeFineDingo-small.gif");
+    color:lime;
+    text-shadow:0 0 20px lime;
+}
+.sub1{
+    padding:20% 40px 0 40px;
+    font-size:25px;
+    font-weight:bold;
+    text-shadow:0 0 10px orange;
+    color:orange;
+    background-image:url("https://i.pinimg.com/originals/20/21/7f/20217f7fa2c9701b8128d8fb153a4db9.gif");
+    background-size:cover;
+}
+/*Loader code goes here --------------------------*/
+
+.loader_container{
+    position:fixed;
+    top:0;
+    left:0;
+    height:100vh;
+    width:100vw;
+    background-color:black;
+}
+.loader_sub{
+    height:150px;
+    width:150px;
+    background-color:transparent;
+    margin-top:calc(50vh - 150px);
+    margin-left:calc(50vw - 75px);
+    position:relative;
+}
+.loader_sub > div{
+    height:5px;
+    width:150px;
+    position:absolute;
+    bottom:0;
+    border-radius:50px;
+    animation:animate1 1s ease-out infinite;
+    background:linear-gradient(90deg, transparent ,#8DF3FF);
+    background-repeat:no-repeat;
+}
+.loader_s > div{
+    height:4px !important;
+    width:130px !important;
+}
+#loader_1{
+    transform-origin:50% 50%;
+    transform:rotate(180deg);
+}
+#loader_2{
+    transform:rotate(-60deg);
+    transform-origin:0% 50%;
+}
+#loader_3{
+    transform:rotate(60deg);
+    transform-origin:100% 50%;
+}
+
+@keyframes animate1{
+    0%{
+        background-size:0% 100%;
+    }
+    100%{
+        background-size:100% 100%;
+    }
+    
+}
+.loader_text{
+    height:20px;
+    width:100vw;
+    background-color:none;
+    position:fixed;
+    margin-top:50px;
+    text-align:center;
+    font-size:30px;
+    letter-spacing:5px;
+}
+.loader_text::before{
+    color:white;
+    content:"Loading";
+    animation:animate2 2s infinite;
+}
+
+@keyframes animate2{
+    0%{
+        content:"Loading";
+    }
+    25%{
+        content:"Loading.";
+    }
+    50%{
+        content:"Loading..";
+    }
+    75%{
+        content:"Loading...";
+    }
+    100%{
+        content:"Loading...";
+    }
+    
+}
+/*------------------------------------*/
+#aud{
+    display:none;
+}
+
+        </style>
+        <script>
+window.onload = function(){
+    
+    $(".loader_container").css("display","none");
+
+    Swal.fire({
+        icon: 'success',
+        title: 'Welcome',
+        html: 'A BIRTHDAY CODE FOR KHUSHI',
+        footer: '<p><center><i>Watch till the End freind</i><br>Time duration : 50sec</center></p>'
+    });
+       
+}    
+    function a(){
+        $(".rotate_content").css("transform","rotate(00deg)");
+        $(".rotate_content > div").css({
+            "background-color":"black",
+            "color":"white"
+        });
+    }
+    
+    function b(){
+        $(".rotate_content").css("transform","rotate(-90deg)");
+        $(".sub4").css("top","-56vh");
+        $(".rotate_content > div").css({
+            "background-color":"#e6e6e6",
+            "color":"black"
+        });
+        
+        
+        
+        
+        var _CONTENT = [ 
+        "O my god ye bhi dekha",
+        "Thanks a lot for watching full code",
+        "Any way ab kahane ko bacha nahi",
+        "So bye bye",
+        "....THE END...."
+        ];
+        var _PART = 0;
+        var _PART_INDEX = 0;
+        var _INTERVAL_VAL;
+        var _ELEMENT = document.querySelector("#text");
+        var _CURSOR = document.querySelector("#cursor");
+    
+        function Type() { 
+            var text =  _CONTENT[_PART].substring(0, _PART_INDEX + 1);
+            _ELEMENT.innerHTML = text;
+            _PART_INDEX++;
+
+            if(text === _CONTENT[_PART]) {
+                _CURSOR.style.display = 'none';
+
+                clearInterval(_INTERVAL_VAL);
+                setTimeout(function() {
+                    _INTERVAL_VAL = setInterval(Delete, 50);
+                }, 1000);
+            }
+        }
+
+        function Delete() {
+            var text =  _CONTENT[_PART].substring(0, _PART_INDEX - 1);
+            _ELEMENT.innerHTML = text;
+            _PART_INDEX--;
+
+            if(text === '') {
+                clearInterval(_INTERVAL_VAL);
+
+                if(_PART == (_CONTENT.length - 1))
+                    _PART = 0;
+                else
+                    _PART++;
+        
+                _PART_INDEX = 0;
+
+                setTimeout(function() {
+                    _CURSOR.style.display = 'inline-block';
+                    _INTERVAL_VAL = setInterval(Type, 100);
+                }, 200);
+            }
+        }
+
+        _INTERVAL_VAL = setInterval(Type, 100);
+    /*type writer logic ends ----------------------*/
+    }
+    
+    function c(){
+        $(".rotate_content").css("transform","rotate(-180deg)");
+        $(".sub3").css("left","-56vh");
+        $(".rotate_content > div").css({
+            "background-color":"pink",
+            "color":"black"
+        });
+    }
+    
+    function d(){
+        $(".rotate_content").css("transform","rotate(-270deg)");
+        $(".sub2").css("top","100vh");
+        $(".rotate_content > div").css({
+            "background-color":"red",
+            "color":"white"
+        });
+    }
+    
+    function e(){
+        $("#arr_1").css("top","-50vh");
+        $("#arr_2").css("left","100vh");
+        $("#arr_3").css("top","100vh");
+        $("#arr_4").css("left","-50vh");
+        $(".rotate_content").css("transform","rotate(-360deg)");
+        $(".sub1").css("left","100vw");
+    }
+    
+    
+    /*setTimeout(c,10000);
+    setTimeout(d,12000);
+    setTimeout(e,14000);*/
+    
+    
+//}
+
+    function clock(){
+        var a = 50;
+        function clock(){
+            document.getElementById("clock").innerHTML = a +" sec Left";
+            a--;
+        
+            if (a==0){
+                clearInterval(intvale);
+                document.getElementById("clock").innerHTML = "OVER";
+            }
+        }
+        var intvale = setInterval(clock,1000);
+    }
+    
+    
+    window.addEventListener("mouseover",play);
+    window.addEventListener("click",play);
+
+    var alpha = 1;
+    function play(){ 
+        if (alpha == 1){
+            document.getElementById("aud").play();
+            setTimeout(a,1000);
+            setTimeout(b,8000);
+            setTimeout(c,30000);
+            setTimeout(d,40000);
+            setTimeout(e,50000);
+            clock();
+            alpha++;
+        }
+    }
+
+        </script>
+    </body>
+</html>
